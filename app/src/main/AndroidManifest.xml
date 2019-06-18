@@ -19,6 +19,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".HomePageActivity" />
+        <activity android:name=".wechat_address_list.SelectRegionActivity" />
     </application>
 
 </manifest>
