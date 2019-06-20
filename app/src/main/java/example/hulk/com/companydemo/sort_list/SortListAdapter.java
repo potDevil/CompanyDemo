@@ -1,5 +1,6 @@
-package example.hulk.com.companydemo.wechat_address_list;
+package example.hulk.com.companydemo.sort_list;
 
+import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,13 +11,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 import example.hulk.com.companydemo.R;
+import example.hulk.com.companydemo.wechat_address_list.RegionAdapter;
 import example.hulk.com.companydemo.wechat_address_list.model.RegionBean;
 
 /**
- * Created by wang on 2019/1/28.
+ * Created by fuzhi on 2019-06-19
  */
-
-public class RegionAdapter extends RecyclerView.Adapter<RegionAdapter.ViewHolder> {
+public class SortListAdapter extends RecyclerView.Adapter<SortListAdapter.ViewHolder> {
 
     List<RegionBean> mData = new ArrayList<>();
 
@@ -28,10 +29,11 @@ public class RegionAdapter extends RecyclerView.Adapter<RegionAdapter.ViewHolder
         notifyDataSetChanged();
     }
 
+    @NonNull
     @Override
-    public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int i) {
         View inflate = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_region_data, parent, false);
-        ViewHolder holder = new ViewHolder(inflate);
+        SortListAdapter.ViewHolder holder = new SortListAdapter.ViewHolder(inflate);
         holder.tvPinyin = (TextView) inflate.findViewById(R.id.tv_pinyin);
         holder.tvName = (TextView) inflate.findViewById(R.id.tv_name);
         holder.tvNum = (TextView) inflate.findViewById(R.id.tv_num);
@@ -39,21 +41,8 @@ public class RegionAdapter extends RecyclerView.Adapter<RegionAdapter.ViewHolder
     }
 
     @Override
-    public void onBindViewHolder(ViewHolder holder, int position) {
-        String pinyin = mData.get(position).pinyin;
-        holder.tvPinyin.setText(pinyin);
-        if (position != 0) {
-            String lastPinyin = mData.get(position - 1).pinyin;
-            if (lastPinyin.equals(pinyin)) {
-                holder.tvPinyin.setVisibility(View.GONE);
-            } else {
-                holder.tvPinyin.setVisibility(View.VISIBLE);
-            }
-        } else {
-            holder.tvPinyin.setVisibility(View.VISIBLE);
-        }
-        holder.tvName.setText(mData.get(position).name);
-        holder.tvNum.setText(mData.get(position).num);
+    public void onBindViewHolder(ViewHolder viewHolder, int i) {
+        viewHolder.tvName.setText(mData.get(i).name);
     }
 
     @Override
@@ -61,13 +50,13 @@ public class RegionAdapter extends RecyclerView.Adapter<RegionAdapter.ViewHolder
         return mData.size();
     }
 
-    class ViewHolder extends RecyclerView.ViewHolder {
-        public ViewHolder(View itemView) {
-            super(itemView);
-        }
-
+    class ViewHolder extends  RecyclerView.ViewHolder {
         TextView tvPinyin;
         TextView tvName;
         TextView tvNum;
+
+        public ViewHolder(@NonNull View itemView) {
+            super(itemView);
+        }
     }
 }
