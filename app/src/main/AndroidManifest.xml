@@ -20,7 +20,8 @@
         </activity>
         <activity android:name=".HomePageActivity" />
         <activity android:name=".wechat_address_list.SelectRegionActivity" />
-        <activity android:name=".sort_list.SortListActivity"/>
+        <activity android:name=".sort_list.SortListActivity" />
+        <activity android:name=".flicker_animation.FlickerAnimationActivity" />
     </application>
 
 </manifest>
