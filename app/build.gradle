@@ -29,6 +29,10 @@ android {
             applicationId "example.hulk.com.companydemo.baidu"
         }
     }
+    compileOptions {
+        sourceCompatibility = '1.8'
+        targetCompatibility = '1.8'
+    }
 }
 
 dependencies {
