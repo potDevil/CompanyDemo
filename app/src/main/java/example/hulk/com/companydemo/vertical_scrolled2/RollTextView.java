@@ -1,8 +1,5 @@
 package example.hulk.com.companydemo.vertical_scrolled2;
 
-import android.animation.Animator;
-import android.animation.AnimatorSet;
-import android.animation.ObjectAnimator;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
@@ -42,21 +39,21 @@ public class RollTextView extends RelativeLayout implements View.OnClickListener
         super(context);
         this.mContext = context;
         initView();
-//        initData();
+        initData();
     }
 
     public RollTextView(Context context, AttributeSet attrs) {
         super(context, attrs);
         this.mContext = context;
         initView();
-//        initData();
+        initData();
     }
 
     public RollTextView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         this.mContext = context;
         initView();
-//        initData();
+        initData();
     }
 
     /**
@@ -97,155 +94,155 @@ public class RollTextView extends RelativeLayout implements View.OnClickListener
         this.mData = data;
     }
 
-    private void setShowAnim(int view) {
-        ObjectAnimator translationX1 = new ObjectAnimator().ofFloat(view, "translationX", 15, 15);
-        ObjectAnimator translationY1 = new ObjectAnimator().ofFloat(view, "translationY", 120, 120);
-        ObjectAnimator alpha = ObjectAnimator.ofFloat(view, "alpha", 0, 0.4f);
-        ObjectAnimator scaleX = ObjectAnimator.ofFloat(view, "scaleX", 0.9f, 0.9f);
-        ObjectAnimator scaleY = ObjectAnimator.ofFloat(view, "scaleY", 0.9f, 0.9f);
-        AnimatorSet animatorSet = new AnimatorSet();  //组合动画
-        animatorSet.playTogether(translationX1, translationY1, alpha, scaleX, scaleY); //设置动画
-        animatorSet.setDuration(3000);  //设置动画时间
-        animatorSet.start();
-    }
-
-    private void setEndAnim(int view) {
-        ObjectAnimator translationX1 = new ObjectAnimator().ofFloat(view, "translationX", 0, 15);
-        ObjectAnimator translationY1 = new ObjectAnimator().ofFloat(view, "translationY", 60, 0);
-        ObjectAnimator alpha = ObjectAnimator.ofFloat(view, "alpha", 1, 0.4f);
-        ObjectAnimator scaleX = ObjectAnimator.ofFloat(view, "scaleX", 1, 0.9f);
-        ObjectAnimator scaleY = ObjectAnimator.ofFloat(view, "scaleY", 1, 0.9f);
-        AnimatorSet animatorSet = new AnimatorSet();  //组合动画
-        animatorSet.playTogether(translationX1, translationY1, alpha, scaleX, scaleY); //设置动画
-        animatorSet.setDuration(3000);  //设置动画时间
-        animatorSet.start();
-        animatorSet.addListener(new Animator.AnimatorListener() {
-            @Override
-            public void onAnimationStart(Animator animator) {
-            }
-
-            @Override
-            public void onAnimationEnd(Animator animator) {
-                findViewById(view).setVisibility(View.VISIBLE);
-            }
-
-            @Override
-            public void onAnimationCancel(Animator animator) {
-            }
-
-            @Override
-            public void onAnimationRepeat(Animator animator) {
-            }
-        });
-    }
-
-    public void startAnim1() {
-        ObjectAnimator translationX = new ObjectAnimator().ofFloat(view_roll_rl1, "translationX", 15, 0, 0, 15);
-        ObjectAnimator translationY = new ObjectAnimator().ofFloat(view_roll_rl1, "translationY", 120, 60, 60, 0);
-        ObjectAnimator alpha = ObjectAnimator.ofFloat(view_roll_rl1, "alpha", 0.4f, 1);
-        ObjectAnimator scaleX = ObjectAnimator.ofFloat(view_roll_rl1, "scaleX", 0.9f, 1);
-        ObjectAnimator scaleY = ObjectAnimator.ofFloat(view_roll_rl1, "scaleY", 0.9f, 1);
-        AnimatorSet animatorSet = new AnimatorSet();  //组合动画
-        animatorSet.playTogether(translationX, translationY, alpha, scaleX, scaleY); //设置动画
-        animatorSet.setDuration(3000);  //设置动画时间
-        animatorSet.start();
-        view_roll_rl1.setVisibility(View.VISIBLE);
-        //动画的监听
-        animatorSet.addListener(new Animator.AnimatorListener() {
-            @Override
-            public void onAnimationStart(Animator animator) {
-                view_roll_content_tv2.setText(mData.get(index));
-                setIndex();
-                setShowAnim(R.id.view_roll_rl2);
-            }
-
-            @Override
-            public void onAnimationEnd(Animator animator) {
-                setEndAnim(R.id.view_roll_rl1);
-                startAnim2();
-            }
-
-            @Override
-            public void onAnimationCancel(Animator animator) {
-            }
-
-            @Override
-            public void onAnimationRepeat(Animator animator) {
-            }
-        });
-    }
-
-    private void startAnim2() {
-        ObjectAnimator translationX = new ObjectAnimator().ofFloat(view_roll_rl2, "translationX", 15, 0);
-        ObjectAnimator translationY = new ObjectAnimator().ofFloat(view_roll_rl2, "translationY", 120, 60);
-        ObjectAnimator alpha = ObjectAnimator.ofFloat(view_roll_rl2, "alpha", 0.4f, 1);
-        ObjectAnimator scaleX = ObjectAnimator.ofFloat(view_roll_rl2, "scaleX", 0.9f, 1);
-        ObjectAnimator scaleY = ObjectAnimator.ofFloat(view_roll_rl2, "scaleY", 0.9f, 1);
-        AnimatorSet animatorSet = new AnimatorSet();  //组合动画
-        animatorSet.playTogether(translationX, translationY, alpha, scaleX, scaleY); //设置动画
-        animatorSet.setDuration(3000);  //设置动画时间
-        animatorSet.start();
-        view_roll_rl2.setVisibility(View.VISIBLE);
-        //动画的监听
-        animatorSet.addListener(new Animator.AnimatorListener() {
-            @Override
-            public void onAnimationStart(Animator animator) {
-                view_roll_content_tv3.setText(mData.get(index));
-                setIndex();
-                setShowAnim(R.id.view_roll_rl3);
-            }
-
-            @Override
-            public void onAnimationEnd(Animator animator) {
-                setEndAnim(R.id.view_roll_rl2);
-                startAnim3();
-            }
-
-            @Override
-            public void onAnimationCancel(Animator animator) {
-            }
-
-            @Override
-            public void onAnimationRepeat(Animator animator) {
-            }
-        });
-    }
-
-    private void startAnim3() {
-        ObjectAnimator translationX = new ObjectAnimator().ofFloat(view_roll_rl3, "translationX", 15, 0);
-        ObjectAnimator translationY = new ObjectAnimator().ofFloat(view_roll_rl3, "translationY", 120, 60);
-        ObjectAnimator alpha = ObjectAnimator.ofFloat(view_roll_rl3, "alpha", 0.4f, 1);
-        ObjectAnimator scaleX = ObjectAnimator.ofFloat(view_roll_rl3, "scaleX", 0.9f, 1);
-        ObjectAnimator scaleY = ObjectAnimator.ofFloat(view_roll_rl3, "scaleY", 0.9f, 1);
-        AnimatorSet animatorSet = new AnimatorSet();  //组合动画
-        animatorSet.playTogether(translationX, translationY, alpha, scaleX, scaleY); //设置动画
-        animatorSet.setDuration(3000);  //设置动画时间
-        animatorSet.start();
-        view_roll_rl3.setVisibility(View.VISIBLE);
-        //动画的监听
-        animatorSet.addListener(new Animator.AnimatorListener() {
-            @Override
-            public void onAnimationStart(Animator animator) {
-                view_roll_content_tv1.setText(mData.get(index));
-                setIndex();
-                setShowAnim(R.id.view_roll_rl1);
-            }
-
-            @Override
-            public void onAnimationEnd(Animator animator) {
-                setEndAnim(R.id.view_roll_rl3);
-                startAnim1();
-            }
-
-            @Override
-            public void onAnimationCancel(Animator animator) {
-            }
-
-            @Override
-            public void onAnimationRepeat(Animator animator) {
-            }
-        });
-    }
+//    private void setShowAnim(int view) {
+//        ObjectAnimator translationX1 = new ObjectAnimator().ofFloat(view, "translationX", 15, 15);
+//        ObjectAnimator translationY1 = new ObjectAnimator().ofFloat(view, "translationY", 120, 120);
+//        ObjectAnimator alpha = ObjectAnimator.ofFloat(view, "alpha", 0, 0.4f);
+//        ObjectAnimator scaleX = ObjectAnimator.ofFloat(view, "scaleX", 0.9f, 0.9f);
+//        ObjectAnimator scaleY = ObjectAnimator.ofFloat(view, "scaleY", 0.9f, 0.9f);
+//        AnimatorSet animatorSet = new AnimatorSet();  //组合动画
+//        animatorSet.playTogether(translationX1, translationY1, alpha, scaleX, scaleY); //设置动画
+//        animatorSet.setDuration(3000);  //设置动画时间
+//        animatorSet.start();
+//    }
+//
+//    private void setEndAnim(int view) {
+//        ObjectAnimator translationX1 = new ObjectAnimator().ofFloat(view, "translationX", 0, 15);
+//        ObjectAnimator translationY1 = new ObjectAnimator().ofFloat(view, "translationY", 60, 0);
+//        ObjectAnimator alpha = ObjectAnimator.ofFloat(view, "alpha", 1, 0.4f);
+//        ObjectAnimator scaleX = ObjectAnimator.ofFloat(view, "scaleX", 1, 0.9f);
+//        ObjectAnimator scaleY = ObjectAnimator.ofFloat(view, "scaleY", 1, 0.9f);
+//        AnimatorSet animatorSet = new AnimatorSet();  //组合动画
+//        animatorSet.playTogether(translationX1, translationY1, alpha, scaleX, scaleY); //设置动画
+//        animatorSet.setDuration(3000);  //设置动画时间
+//        animatorSet.start();
+//        animatorSet.addListener(new Animator.AnimatorListener() {
+//            @Override
+//            public void onAnimationStart(Animator animator) {
+//            }
+//
+//            @Override
+//            public void onAnimationEnd(Animator animator) {
+//                findViewById(view).setVisibility(View.VISIBLE);
+//            }
+//
+//            @Override
+//            public void onAnimationCancel(Animator animator) {
+//            }
+//
+//            @Override
+//            public void onAnimationRepeat(Animator animator) {
+//            }
+//        });
+//    }
+//
+//    public void startAnim1() {
+//        ObjectAnimator translationX = new ObjectAnimator().ofFloat(view_roll_rl1, "translationX", 15, 0, 0, 15);
+//        ObjectAnimator translationY = new ObjectAnimator().ofFloat(view_roll_rl1, "translationY", 120, 60, 60, 0);
+//        ObjectAnimator alpha = ObjectAnimator.ofFloat(view_roll_rl1, "alpha", 0.4f, 1);
+//        ObjectAnimator scaleX = ObjectAnimator.ofFloat(view_roll_rl1, "scaleX", 0.9f, 1);
+//        ObjectAnimator scaleY = ObjectAnimator.ofFloat(view_roll_rl1, "scaleY", 0.9f, 1);
+//        AnimatorSet animatorSet = new AnimatorSet();  //组合动画
+//        animatorSet.playTogether(translationX, translationY, alpha, scaleX, scaleY); //设置动画
+//        animatorSet.setDuration(3000);  //设置动画时间
+//        animatorSet.start();
+//        view_roll_rl1.setVisibility(View.VISIBLE);
+//        //动画的监听
+//        animatorSet.addListener(new Animator.AnimatorListener() {
+//            @Override
+//            public void onAnimationStart(Animator animator) {
+//                view_roll_content_tv2.setText(mData.get(index));
+//                setIndex();
+//                setShowAnim(R.id.view_roll_rl2);
+//            }
+//
+//            @Override
+//            public void onAnimationEnd(Animator animator) {
+//                setEndAnim(R.id.view_roll_rl1);
+//                startAnim2();
+//            }
+//
+//            @Override
+//            public void onAnimationCancel(Animator animator) {
+//            }
+//
+//            @Override
+//            public void onAnimationRepeat(Animator animator) {
+//            }
+//        });
+//    }
+//
+//    private void startAnim2() {
+//        ObjectAnimator translationX = new ObjectAnimator().ofFloat(view_roll_rl2, "translationX", 15, 0);
+//        ObjectAnimator translationY = new ObjectAnimator().ofFloat(view_roll_rl2, "translationY", 120, 60);
+//        ObjectAnimator alpha = ObjectAnimator.ofFloat(view_roll_rl2, "alpha", 0.4f, 1);
+//        ObjectAnimator scaleX = ObjectAnimator.ofFloat(view_roll_rl2, "scaleX", 0.9f, 1);
+//        ObjectAnimator scaleY = ObjectAnimator.ofFloat(view_roll_rl2, "scaleY", 0.9f, 1);
+//        AnimatorSet animatorSet = new AnimatorSet();  //组合动画
+//        animatorSet.playTogether(translationX, translationY, alpha, scaleX, scaleY); //设置动画
+//        animatorSet.setDuration(3000);  //设置动画时间
+//        animatorSet.start();
+//        view_roll_rl2.setVisibility(View.VISIBLE);
+//        //动画的监听
+//        animatorSet.addListener(new Animator.AnimatorListener() {
+//            @Override
+//            public void onAnimationStart(Animator animator) {
+//                view_roll_content_tv3.setText(mData.get(index));
+//                setIndex();
+//                setShowAnim(R.id.view_roll_rl3);
+//            }
+//
+//            @Override
+//            public void onAnimationEnd(Animator animator) {
+//                setEndAnim(R.id.view_roll_rl2);
+//                startAnim3();
+//            }
+//
+//            @Override
+//            public void onAnimationCancel(Animator animator) {
+//            }
+//
+//            @Override
+//            public void onAnimationRepeat(Animator animator) {
+//            }
+//        });
+//    }
+//
+//    private void startAnim3() {
+//        ObjectAnimator translationX = new ObjectAnimator().ofFloat(view_roll_rl3, "translationX", 15, 0);
+//        ObjectAnimator translationY = new ObjectAnimator().ofFloat(view_roll_rl3, "translationY", 120, 60);
+//        ObjectAnimator alpha = ObjectAnimator.ofFloat(view_roll_rl3, "alpha", 0.4f, 1);
+//        ObjectAnimator scaleX = ObjectAnimator.ofFloat(view_roll_rl3, "scaleX", 0.9f, 1);
+//        ObjectAnimator scaleY = ObjectAnimator.ofFloat(view_roll_rl3, "scaleY", 0.9f, 1);
+//        AnimatorSet animatorSet = new AnimatorSet();  //组合动画
+//        animatorSet.playTogether(translationX, translationY, alpha, scaleX, scaleY); //设置动画
+//        animatorSet.setDuration(3000);  //设置动画时间
+//        animatorSet.start();
+//        view_roll_rl3.setVisibility(View.VISIBLE);
+//        //动画的监听
+//        animatorSet.addListener(new Animator.AnimatorListener() {
+//            @Override
+//            public void onAnimationStart(Animator animator) {
+//                view_roll_content_tv1.setText(mData.get(index));
+//                setIndex();
+//                setShowAnim(R.id.view_roll_rl1);
+//            }
+//
+//            @Override
+//            public void onAnimationEnd(Animator animator) {
+//                setEndAnim(R.id.view_roll_rl3);
+//                startAnim1();
+//            }
+//
+//            @Override
+//            public void onAnimationCancel(Animator animator) {
+//            }
+//
+//            @Override
+//            public void onAnimationRepeat(Animator animator) {
+//            }
+//        });
+//    }
 
     /**
      * 初始化数据

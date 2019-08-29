@@ -31,6 +31,6 @@ public class PollingActivity2 extends AppCompatActivity {
         list.add("谁知盘中餐");
         list.add("粒粒皆辛苦");
         roll_text_view.setData(list);
-        roll_text_view.startAnim1();
+        roll_text_view.start();
     }
 }
