@@ -23,6 +23,9 @@
         <activity android:name=".sort_list.SortListActivity" />
         <activity android:name=".flicker_animation.FlickerAnimationActivity" />
         <activity android:name=".get_apk_info.GetApkInfoActivity" />
+        <activity android:name=".vertical_scrolled.PollingActivity" />
+        <activity android:name=".vertical_scrolled2.PollingActivity2" />
+        <activity android:name=".animation.AnimationActivity" />
     </application>
 
 </manifest>

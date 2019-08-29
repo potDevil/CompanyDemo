@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="75dp"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/tv_roll_show1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="悯农"
+        android:textSize="14sp" />
+
+    <TextView
+        android:id="@+id/tv_roll_show2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="13dp"
+        android:text="锄禾日当午"
+        android:textSize="14sp" />
+
+    <TextView
+        android:id="@+id/tv_roll_show3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="13dp"
+        android:text="汗滴禾下土"
+        android:textSize="14sp" />
+
+    <TextView
+        android:id="@+id/tv_roll_show4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="13dp"
+        android:text="谁知盘中餐"
+        android:textSize="14sp" />
+
+    <TextView
+        android:id="@+id/tv_roll_show5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="13dp"
+        android:text="粒粒皆辛苦"
+        android:textSize="14sp" />
+
+</RelativeLayout>
